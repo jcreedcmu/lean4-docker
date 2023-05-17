@@ -3,9 +3,6 @@
 (setq no-native-compile t)
 (setq-default native-comp-bootstrap-deny-list '(".*"))
 
-(setq-default comp-deferred-compilation t)
-(setq-default native-comp-deferred-compilation nil)
-
 (setq load-path (cons "/vendor/lean4-mode" load-path))
 
 (require 'lean4-mode)
