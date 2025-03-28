@@ -14,6 +14,7 @@ RUN apt-get update
 RUN apt-get install -y emacs git
 RUN mkdir /vendor
 RUN chown -R ubuntu /vendor
+RUN chown -R ubuntu:ubuntu $ELAN_HOME
 
 USER ubuntu
 

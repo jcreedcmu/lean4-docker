@@ -9,9 +9,11 @@ make build
 make run
 ```
 
-Running populates `/tmp/math-puzzles-in-lean4` with a clone of https://github.com/dwrensha/math-puzzles-in-lean4.git,
-and mounts exactly the file `/tmp/math-puzzles-in-lean4/MathPuzzles/UpperLowerContinuous.lean` in a suitable place in 
-the container. Everything else (including mathlib4) is precompiled during container build.
+This starts an emacs with lean4-mode available.
+
+Mathlib4 is precompiled during container build.
+
+Host `${HOME}/proj/lean` is bound to guest `/lean-code` so lean code can go in there.
 
 The other volume mount of note is `${HOME}/tmp/eln-cache`, which is bound to the container's native compilation
 cache. Mysteriously, I can't seem to turn off native compilation in the container, so the volume mount is there

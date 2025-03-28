@@ -10,6 +10,6 @@ docker run -u $(id -u):$(id -g) --rm -it \
        --net=host \
        -h ${HOSTNAME} \
        -v ${HOME}/.Xauthority:/home/ubuntu/.Xauthority \
-       --entrypoint=/home/ubuntu/scripts/run-emacs.sh lean4:latest
+       --entrypoint=/bin/bash lean4:latest
 
 xhost -local:root

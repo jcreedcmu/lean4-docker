@@ -24,7 +24,7 @@
  '(font-lock-string-face ((nil (:foreground "#63a363"))))
  '(font-lock-type-face ((nil (:foreground "#859900" :weight bold))))
  '(font-lock-variable-name-face ((nil (:foreground "#d33682"))))
- '(highlight ((t (:background "#ff0"))))
+ '(highlight ((t (:background "#770"))))
  '(italic ((((supports :underline t)) (:slant italic))))
  '(link ((t (:foreground "#55f" ))))
  '(region ((t (:background "#004b56"))))
