@@ -1,4 +1,4 @@
-FROM buildpack-deps:mantic
+FROM buildpack-deps:plucky
 
 ENV ELAN_HOME=/usr/local/elan \
     PATH=/usr/local/elan/bin:$PATH \
@@ -13,10 +13,16 @@ RUN curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -
 RUN apt-get update
 RUN apt-get install -y emacs git
 RUN mkdir /vendor
-RUN cd /vendor && git clone https://github.com/dwrensha/math-puzzles-in-lean4.git
-RUN cd /vendor/math-puzzles-in-lean4 && lake exe cache get && lake build
+RUN chown -R ubuntu /vendor
+
+USER ubuntu
+
 RUN cd /vendor && git clone https://github.com/leanprover/lean4-mode
-COPY ./emacs-support root/emacs-support
-RUN emacs --script /root/emacs-support/install-emacs-packages.el
-COPY ./emacs.d /root/.emacs.d/
-COPY ./scripts /root/scripts
+COPY ./emacs-support /home/ubuntu/emacs-support
+RUN emacs --script /home/ubuntu/emacs-support/install-emacs-packages.el
+COPY ./emacs.d /home/ubuntu/.emacs.d/
+COPY ./scripts /home/ubuntu/scripts
+
+USER root
+
+RUN chown -R ubuntu /home/ubuntu
