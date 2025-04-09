@@ -11,7 +11,8 @@ RUN curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -
     leanc --version; \
     lake --version;
 RUN apt-get update
-RUN apt-get install -y emacs git
+RUN apt-get install -y emacs git silversearcher-ag gpg sudo
+RUN apt update
 RUN mkdir /vendor
 RUN chown -R ubuntu /vendor
 RUN chown -R ubuntu:ubuntu $ELAN_HOME
