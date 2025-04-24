@@ -1,4 +1,4 @@
-(setq lean4-mode-required-packages '(dash f flycheck lsp-mode magit-section s))
+(setq lean4-mode-required-packages '(dash f flycheck lsp-mode magit-section s exec-path-from-shell paredit))
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))

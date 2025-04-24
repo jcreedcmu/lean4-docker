@@ -20,10 +20,11 @@ RUN chown -R ubuntu:ubuntu $ELAN_HOME
 USER ubuntu
 
 RUN cd /vendor && git clone https://github.com/leanprover/lean4-mode
+RUN cd /vendor && git clone https://github.com/jcreedcmu/dot-emacs.git
 COPY ./emacs-support /home/ubuntu/emacs-support
 RUN emacs --script /home/ubuntu/emacs-support/install-emacs-packages.el
-COPY ./emacs.d /home/ubuntu/.emacs.d/
 COPY ./scripts /home/ubuntu/scripts
+RUN /home/ubuntu/scripts/connect-dotemacs.sh
 
 USER root
 
